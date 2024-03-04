@@ -4,6 +4,8 @@ class A {
     public void m1() {
         System.out.println("A : m1");
     }
+
+    public int m3(){ return 1;}
 }
 
 class B extends A {
@@ -14,6 +16,8 @@ class B extends A {
     public void m2() {
         System.out.println("B : m2");
     }
+
+    //public void m3(){} //gives compilation error, you can only override method with same input and output signature
 }
 
 class C extends B {

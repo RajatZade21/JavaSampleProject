@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -9,6 +10,12 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/FactoryDesignPattern" />
+            <option value="$PROJECT_DIR$/basic-syntax" />
+            <option value="$PROJECT_DIR$/collections-problem" />
+            <option value="$PROJECT_DIR$/common-layer" />
+            <option value="$PROJECT_DIR$/design-patterns" />
+            <option value="$PROJECT_DIR$/problem-solving" />
+            <option value="$PROJECT_DIR$/thread-problems" />
           </set>
         </option>
       </GradleProjectSettings>

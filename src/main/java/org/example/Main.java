@@ -15,5 +15,20 @@ public class Main {
             // for you, but you can always add more by pressing Ctrl+F8.
             System.out.println("i = " + i);
         }
+        String str = "Rajat";
+        str = "Zade";
+        System.err.print(1*2 + str);
+        System.out.println(str + 1*2);
+
+    }
+
+    public static int divide(int i){
+        try{
+            int a = 10/i;
+        }catch(Exception e){
+            return 10;
+        }finally{
+            return 20;
+        }
     }
 }

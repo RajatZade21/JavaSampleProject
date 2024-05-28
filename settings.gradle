@@ -1,4 +1,10 @@
 rootProject.name = 'JavaSampleProject'
 include 'FactoryDesignPattern'
 include 'FactoryDesignPattern'
+include 'common-layer'
+include 'problem-solving'
+include 'design-patterns'
+include 'thread-problems'
+include 'collections-problem'
+include 'basic-syntax'
 

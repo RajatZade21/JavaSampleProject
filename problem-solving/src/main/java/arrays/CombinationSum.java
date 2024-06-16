@@ -1,46 +1,48 @@
 package arrays;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 
 public class CombinationSum {
     public static void main(String[] args){
         int[] arr = {1,9,6,5,4,5,7,8,2,6,3,4};
-        int sum = 11;
-        List < List < Integer >> ls = combinationSum(arr,sum);
-        for (int i = 0; i < ls.size(); i++) {
-            for (int j = 0; j < ls.get(i).size(); j++) {
-                //System.out.print(ls.get(i).get(j) + " ");
-            }
-            //System.out.println();
-        }
+        int targetSum = 11;
+        Arrays.sort(arr);
+        List<List<Integer >> combinations = combinationSum(arr,targetSum);
+        System.out.println("All combinations that add up to " + targetSum + ": " + combinations);
     }
 
-    static List<List<Integer>> combinationSum(int[] arr,int sum){
-        List<List<Integer>> result = new ArrayList<>();
-        findCombination(0,arr,sum,result,new ArrayList<>());
-        return result;
+    public static List<List<Integer>> combinationSum(int[] arr,int targetSum){
+        List<List<Integer>> combinations = new ArrayList<>();
+        findCombination(arr,0,targetSum,new ArrayList<>(),combinations);
+        return combinations;
     }
 
-    private static void findCombination(int i, int[] arr, int sum, List<List<Integer>> result, ArrayList<Integer> list) {
-        //System.out.println(i + " " + arr + " " + sum + " " + result.toString() + " " + list.toString());
-        if(i == arr.length){
-            if(sum == 0){
-                result.add(new ArrayList<>(list));
-            }
+    public static void findCombination(int[] arr, int currIndex, int targetSum, List<Integer> currCombination, List<List<Integer>> combinations) {
+
+        if(targetSum == 0){
+            // Found a valid combination
+            combinations.add(new ArrayList<>(currCombination));
             return;
         }
 
-        if(arr[i] <= sum){
-            list.add(arr[i]);
-            findCombination(i,arr,sum - arr[i],result,list);
-            System.out.println(list);
-            list.remove(list.size() - 1);
+        if(currIndex >= arr.length || targetSum < 0){
+            // Reached end of array or exceeded target sum
+            return;
         }
-        findCombination(i + 1,arr,sum,result,list);
+
+        // Explore two options: include or exclude current element
+        List<Integer> withCurrent = new ArrayList<>(currCombination);
+        withCurrent.add(arr[currIndex]);
+        findCombination(arr,currIndex + 1,targetSum - arr[currIndex],withCurrent,combinations);
+
+        List<Integer> withoutCurrent = new ArrayList<>(currCombination);
+        findCombination(arr,currIndex + 1,targetSum,withoutCurrent,combinations);
 
     }
+
 
 
 }

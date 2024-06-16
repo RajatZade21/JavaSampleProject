@@ -43,6 +43,10 @@ public class InheritanceClass1 {
 
         A a1 = new A();
         a1.m1(); // class m1 from A
+
+        String str = "Rajat";
+        str = "Zade";
+        System.out.println(str);
     }
 }
 

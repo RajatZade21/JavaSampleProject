@@ -34,7 +34,7 @@ public class StreamOnMap {
         Map<String,Double> map1 = list.stream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.averagingDouble(Employee::getSalary)));
 
 
-        //get highest salary for each department
+        //get the highest salary for each department
         //Collectors.collectingAndThen
         //Collectors.maxBy
         Map<String,Employee> map2 = list.stream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.collectingAndThen(maxBy(Comparator.comparingDouble(Employee::getSalary)),Optional::get)));

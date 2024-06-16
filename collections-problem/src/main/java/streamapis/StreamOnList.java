@@ -7,9 +7,10 @@ import org.slf4j.LoggerFactory;
 import services.DummyDataService;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.*;
 
 public class StreamOnList {
     private static Logger logger = LoggerFactory.getLogger(StreamOnList.class);
@@ -66,5 +67,18 @@ public class StreamOnList {
         logger.debug(String.valueOf(totalSalary.getAsDouble()));
 
         List oddList = Arrays.asList(1,2,3,4,5,6,7,8,9).stream().filter(x -> x%2==1).collect(toList());
+
+        //get unique elements from list
+        //distinct
+        List list4 = Arrays.asList(1,2,3,4,2,1,7,3,4).stream().distinct().collect(toList());
+
+
+        String str = " Hi, I am Hritik and I am a programmer. ";
+        List<String> list = Arrays.asList(str.split("\\W"));
+        List<String> list5 = list.stream().collect(groupingBy(Function.identity(),counting())).entrySet().stream().filter(x -> x.getValue() > 1 && !x.getKey().isBlank()).map(Map.Entry::getKey).collect(toList());
+        logger.debug(list5.toString());
+
+        Integer[] arr = new Integer[]{1,3,8,2,7,6,9};
+
     }
 }

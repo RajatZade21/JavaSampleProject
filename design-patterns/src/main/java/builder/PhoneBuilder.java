@@ -26,6 +26,11 @@ public class PhoneBuilder {
         return this;
     }
 
+    @Override
+    public String toString(){
+        return os + " : " + ram + " : " + processor  + " : " + battery;
+    }
+
     public Phone getPhone(){
         return new Phone(os,ram,processor,battery);
     }

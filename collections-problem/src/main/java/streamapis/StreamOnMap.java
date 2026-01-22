@@ -19,6 +19,10 @@ public class StreamOnMap {
         DummyDataService service = new DummyDataService();
         List<Employee> list = service.getEmployeeList();
 
+        //grouping by - department
+        //return as map
+        Map<String,List<Employee>> map0 = list.stream().collect(Collectors.groupingBy(Employee::getDepartment));
+
         //grouping by - departments
         //sorted - no of employees
         //return as map
@@ -58,6 +62,13 @@ public class StreamOnMap {
         Map<Boolean,List<Integer>> oddEven = numbers.stream().collect(partitioningBy(b));
         logger.debug(oddEven.get(true).toString());
 
+        Map<String, Double> combineCSIT = list.stream()
+                .collect(Collectors.groupingBy(
+                        t -> !t.getDepartment().equals("IT") ? t.getDepartment() : "CS",
+                        Collectors.summingDouble(Employee::getSalary)
+                ));
+
+        System.out.println(combineCSIT);
     }
 
 

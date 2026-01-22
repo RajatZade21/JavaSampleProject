@@ -27,6 +27,13 @@ public class ListExample1 {
         List<Employee> list3 = list1.stream().filter(set::contains).collect(Collectors.toList());
         System.out.println(list3);
 
+
+        Iterator<Employee> iterator = list3.iterator();
+        while (iterator.hasNext()) {
+            if(iterator.next().getId().equals(101)){
+                list3.add(Employee.builder().id(103).name("Mayuri").department("IT").salary(220000.0).dateOfJoining(new SimpleDateFormat("yyyy-MM-dd").parse("2017-10-01")).build());
+            }
+        }
         Properties properties = new Properties();
         try (InputStream input = ListExample1.class.getClassLoader().getResourceAsStream("config.properties")) {
             if (input == null) {

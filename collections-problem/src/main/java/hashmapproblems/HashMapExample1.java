@@ -26,8 +26,6 @@ public class HashMapExample1 {
         Integer result = employeeMap.get(new Employee("Rajat", 1));
         System.out.println(result); // result = null;
 
-        Optional<String> empty = Optional.empty();
-        ExecutorService pool = Executors.newFixedThreadPool(1);
     }
 }
 //A simple thumb rule is to use immutable objects as keys in a HashMap.

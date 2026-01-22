@@ -6,6 +6,7 @@ import common.layer.models.Employee;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class DummyDataService {
@@ -56,5 +57,33 @@ public class DummyDataService {
             System.out.println(ex);
         }
         return list;
+    }
+
+    public HashMap<String,List<Employee>> getDepartmentEmployee(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        HashMap<String,List<Employee>> map = new HashMap<>();
+        try {
+            List<Employee> list1 = new ArrayList<>();
+            list1.add(Employee.builder().id(101).name("Rajat").department("IT").dateOfJoining(sdf.parse("2017-10-01")).build());
+            list1.add(Employee.builder().id(106).name("Mayuri").department("IT").dateOfJoining(sdf.parse("2018-12-25")).build());
+            map.put("IT", list1);
+
+            List<Employee> list2 = new ArrayList<>();
+            list2.add(Employee.builder().id(108).name("Aarya").department("ME").dateOfJoining(sdf.parse("2024-01-24")).build());
+            list2.add(Employee.builder().id(120).name("Neeti").department("ME").dateOfJoining(sdf.parse("2021-06-15")).build());
+            list2.add(Employee.builder().id(123).name("Suchita").department("ME").dateOfJoining(sdf.parse("2022-02-02")).build());
+            map.put("ME", list2);
+
+            List<Employee> list3 = new ArrayList<>();
+            list3.add(Employee.builder().id(104).name("Panda").department("CS").dateOfJoining(sdf.parse("2016-01-26")).build());
+            list3.add(Employee.builder().id(111).name("Usha").department("CS").dateOfJoining(sdf.parse("2021-07-06")).build());
+            list3.add(Employee.builder().id(115).name("Ruchu").department("CS").dateOfJoining(sdf.parse("2017-05-11")).build());
+            list3.add(Employee.builder().id(107).name("Om").department("CS").dateOfJoining(sdf.parse("2019-11-09")).build());
+            map.put("CS", list3);
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+        return map;
     }
 }

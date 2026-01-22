@@ -1,4 +1,5 @@
 package singleton;
+
 //Declaring all constructors of the class to be private.
 //Providing a static method that returns a reference to the instance.
 //The lazy initialization concept is used to write the static methods.

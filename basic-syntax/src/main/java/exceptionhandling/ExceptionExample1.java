@@ -16,6 +16,7 @@ public class ExceptionExample1 {
         }
     }
 
+    //without throws InvalidAgeException we get - Unhandled exception: exceptionhandling.InvalidAgeException
     public static void checkValidAge(int age) throws InvalidAgeException{
         if(age < 18){
             throw new InvalidAgeException("Invalid Age");

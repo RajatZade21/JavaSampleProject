@@ -1,0 +1,27 @@
+//Person - id,name
+//Answers - id,person_id,question_id
+
+
+SELECT p.name, COUNT(*) AS question_count
+FROM Person p
+JOIN Answers a
+    ON p.id = a.person_id
+GROUP BY p.id, p.name
+ORDER BY question_count DESC
+LIMIT 1;
+
+// If multiple people can tie If you want everyone who answered the most questions, don't use LIMIT 1.
+
+SELECT p.name, COUNT(*) AS question_count
+FROM Person p
+JOIN Answers a
+    ON p.id = a.person_id
+GROUP BY p.id, p.name
+HAVING COUNT(*) = (
+    SELECT MAX(cnt)
+    FROM (
+        SELECT COUNT(*) AS cnt
+        FROM Answers
+        GROUP BY person_id
+    ) x
+);

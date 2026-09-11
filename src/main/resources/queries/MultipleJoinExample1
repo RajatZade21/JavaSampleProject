@@ -1,0 +1,23 @@
+//Write a SQL query to find the average age of students enrolled in each course,
+//along with the title of the course. Exclude courses with no enrolled students.
+
+//Students - student_id, name, age
+//Courses - course_id, title
+//Enrollments - enrollment_id, student_id, course_id
+
+SELECT
+    c.title AS course_title,
+    AVG(s.age) AS average_student_age
+FROM Courses c
+JOIN Enrollments e
+    ON c.course_id = e.course_id
+JOIN Students s
+    ON e.student_id = s.student_id
+GROUP BY c.title;
+
+//if you want to select course_id then use it in GROUP BY
+//Why JOIN rather than LEFT JOIN?
+  The question says:
+    Exclude courses with no enrolled students.
+  Therefore, INNER JOIN (the default JOIN) is exactly what we want.
+//You can use ROUND(AVG(s.age)) if you want to round of the

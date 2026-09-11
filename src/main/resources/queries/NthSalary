@@ -1,0 +1,21 @@
+
+SELECT salary
+FROM (
+    SELECT salary,
+           DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+    FROM Employee
+) e
+WHERE rnk = N;
+
+DENSE_RANK() - assigns the same rank to duplicate salaries and doesn't skip the next rank, so it finds the Nth distinct highest salary."
+ROW_NUMBER() - If they instead ask for the Nth employee/row by salary, even when salaries are duplicated, you'd use ROW_NUMBER() instead.
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+SELECT DISTINCT salary
+FROM Employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET N - 1;
+
+//////////////////////////////////////////////////////////////////////////////////////
+

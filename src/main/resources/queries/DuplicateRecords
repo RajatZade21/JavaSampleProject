@@ -1,0 +1,24 @@
+
+WITH DuplicateRecords AS
+(
+    SELECT *,
+           ROW_NUMBER() OVER (
+               PARTITION BY name, class, email
+               ORDER BY id
+           ) AS rn
+    FROM Student
+)
+DELETE FROM DuplicateRecords
+WHERE rn > 1;
+
+/////////////////////////////////////////////////////////////////////
+OVER() → calculates across rows while keeping the original rows.
+
+What is happening?
+    PARTITION BY name, class, email
+
+Groups records that are duplicates.
+    ORDER BY id
+
+keeps the record with the smallest id as rn = 1.
+    WHERE rn > 1

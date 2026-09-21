@@ -25,3 +25,30 @@ HAVING COUNT(*) = (
         GROUP BY person_id
     ) x
 );
+
+//Aggregate functions
+COUNT()
+SUM()
+AVG()
+MAX()
+MIN()
+
+
+//String functions
+CONCAT()
+LENGTH()
+UPPER()
+LOWER()
+SUBSTRING()
+TRIM()
+REPLACE()
+
+
+//Date/time functions
+NOW()
+CURRENT_DATE()
+YEAR()
+MONTH()
+DAY()
+DATEDIFF()
+DATE_ADD()

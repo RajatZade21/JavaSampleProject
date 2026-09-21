@@ -81,7 +81,13 @@ public class StreamOnList {
         logger.debug(list5.toString());
 
         Integer[] arr = new Integer[]{1,3,8,2,7,6,9};
-        Arrays.asList(arr).stream().sorted((x,y) -> y.compareTo(x)).forEach(System.out::println);
+        Arrays.asList(arr).stream().sorted().forEach(System.out::println);                          //ascending/natural order
+        Arrays.asList(arr).stream().sorted((x,y) -> y.compareTo(x)).forEach(System.out::println);   //descending order manually
+        Arrays.asList(arr).stream().sorted(Comparator.naturalOrder()).forEach(System.out::println); //ascending/natural order
+        Arrays.asList(arr).stream().sorted(Comparator.reverseOrder()).forEach(System.out::println); //descending order
+
+        list3.stream().sorted(Comparator.comparing(Employee::getDepartment).thenComparing(Employee::getSalary)).collect(toList());
+        //list3.stream().sorted(Comparator.comparing(x -> x.).thenComparing(Employee::getSalary)).collect(toList());
 
         //Check if list is null then return list of names
         //Optional.ofNullable().map().orElse()
@@ -99,7 +105,14 @@ public class StreamOnList {
         boolean oneEven = intList.stream().anyMatch(i -> i % 2 == 0);
         boolean noneMultipleOfThree = intList.stream().noneMatch(i -> i % 3 == 0);
 
+        int[] num = {33, 12, 11, 111, 76, 96, 42};
+        List<String> startsWith1 = Arrays.stream(num).boxed()
+                .map(x -> x + "").filter(s -> s.startsWith("1")).toList();
 
         IntStream.range(10, 20).forEach(System.out::println);
+
+        String[] givenStr = {"KTM", "Hero", "Royal Enfield", "Bajaj", "Tata"};
+        String largestString = Arrays.stream(givenStr).reduce((x,y) -> x.length() > y.length() ? x : y).get();
+        System.out.println(largestString);
     }
 }

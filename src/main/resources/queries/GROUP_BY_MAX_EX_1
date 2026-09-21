@@ -1,0 +1,17 @@
+//Employees - id,name,salary
+//Departments - id,name, employees
+
+
+SELECT d.name AS department_name,
+       MAX(e.salary) AS top_salary
+FROM Departments d
+JOIN Employees e
+    ON e.department_id = d.id
+GROUP BY d.id, d.name;
+
+//Sequence
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+LIMIT

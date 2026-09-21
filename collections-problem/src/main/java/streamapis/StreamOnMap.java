@@ -19,6 +19,35 @@ public class StreamOnMap {
         DummyDataService service = new DummyDataService();
         List<Employee> list = service.getEmployeeList();
 
+        //Highest Salary Per Department
+        Map<String,Employee> highestSalaryMap = list.stream()
+                .collect(
+                        Collectors.groupingBy(
+                                Employee::getDepartment,
+                                Collectors.collectingAndThen(
+                                        Collectors.maxBy(
+                                                Comparator.comparingDouble(Employee::getSalary)
+                                        ),
+                                        Optional::get)
+                        )
+                );
+
+        //Second Salary Per Department
+        Map<String,Employee> secondHighestSalaryMap = list.stream()
+                .collect(
+                        Collectors.groupingBy(
+                                Employee::getDepartment,
+                                Collectors.collectingAndThen(
+                                        Collectors.toList(),
+                                        employees -> employees.stream()
+                                                .sorted(Comparator.comparingDouble(Employee::getSalary))
+                                                .skip(1)
+                                                .findFirst()
+                                                .orElse(null)
+                                )
+                        )
+                );
+
         //grouping by - department
         //return as map
         Map<String,List<Employee>> map0 = list.stream().collect(Collectors.groupingBy(Employee::getDepartment));
@@ -69,6 +98,35 @@ public class StreamOnMap {
                 ));
 
         System.out.println(combineCSIT);
+
+        list.stream()
+                .collect(Collectors.groupingBy(
+                    Employee::getDepartment,
+                    LinkedHashMap::new,
+                    Collectors.counting()
+                ))
+                .entrySet()
+                .stream()
+                .sorted(
+                        Map.Entry.<String, Long>comparingByKey()
+                                .thenComparing(Map.Entry.comparingByValue())
+                 )
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1,e2) -> e1,
+                        LinkedHashMap::new
+                ));
+
+
+        Map<String, Employee> result = list.stream()
+                .collect(Collectors.groupingBy(
+                        Employee::getDepartment,
+                        Collectors.collectingAndThen(
+                                Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)),
+                                Optional::get
+                        )
+                ));
     }
 
 

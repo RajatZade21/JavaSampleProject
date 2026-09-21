@@ -18,7 +18,7 @@ public class FirstNonRepeatedChar {
     static Character findFirstNonRepeatedChar(String str){
         Character nonRepeatedChar = ' ';
 
-        HashMap<Character ,Integer> map = new HashMap<>();
+        LinkedHashMap<Character ,Integer> map = new LinkedHashMap<>();
 
         for(int i = 0;i < str.length();i++){
             Character ch = str.charAt(i);

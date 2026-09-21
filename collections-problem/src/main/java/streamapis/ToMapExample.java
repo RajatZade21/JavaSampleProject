@@ -22,6 +22,7 @@ public class ToMapExample {
                         LinkedHashMap::new
                 ));
 
+
         /*
         * Collectors.toMap(
             KEY,

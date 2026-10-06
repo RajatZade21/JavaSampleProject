@@ -18,7 +18,7 @@ public class FileReadExample {
 
     private static void processCsvLazy() throws IOException {
         //Files.lines() is lazy, so it does not load the complete file into memory:
-        try(Stream<String> lines = Files.lines(Paths.get(""))){
+        try(Stream<String> lines = Files.lines(Paths.get(","))){
             lines.skip(1)  //skips header row
                     .map(line -> line.split(","))
                     .map(data -> new User(
@@ -38,7 +38,7 @@ public class FileReadExample {
 
         //BufferedReader reads the file incrementally. It maintains a small internal buffer and gives me one line at a time.
         try(BufferedReader reader =
-                Files.newBufferedReader(Paths.get(""))){
+                Files.newBufferedReader(Paths.get(","))){
 
             reader.readLine();
 

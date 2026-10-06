@@ -3,6 +3,7 @@ package curdexample.controller;
 import curdexample.dto.User;
 import curdexample.service.UserService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -62,5 +63,15 @@ public class UserController {
         );
     }
 
+    @GetMapping(
+            value = "",
+            produces = {
+                    MediaType.APPLICATION_JSON_VALUE,
+                    MediaType.APPLICATION_XML_VALUE
+            }
+    )
+    public User getCustomer(@PathVariable Long id){
+        return userService.getUserById(id);
+    }
 
 }

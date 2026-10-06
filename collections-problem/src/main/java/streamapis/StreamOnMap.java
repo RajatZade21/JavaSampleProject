@@ -119,14 +119,6 @@ public class StreamOnMap {
                 ));
 
 
-        Map<String, Employee> result = list.stream()
-                .collect(Collectors.groupingBy(
-                        Employee::getDepartment,
-                        Collectors.collectingAndThen(
-                                Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)),
-                                Optional::get
-                        )
-                ));
     }
 
 

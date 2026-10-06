@@ -39,7 +39,13 @@ public class FirstNonRepeatedChar {
     static Character findFirstNonRepeatedCharUsingStream(String str){
         Character result = str.chars()
                 .mapToObj(x -> Character.toLowerCase(Character.valueOf((char) x)))
-                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new,Collectors.counting()))
+                .collect(
+                        Collectors.groupingBy(
+                                Function.identity(),
+                                LinkedHashMap::new,
+                                Collectors.counting()
+                        )
+                )
                 .entrySet().stream()
                 .filter(x -> x.getValue().equals(1L))
                 .map(x -> x.getKey())

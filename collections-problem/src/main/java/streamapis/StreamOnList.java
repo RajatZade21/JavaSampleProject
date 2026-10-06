@@ -107,7 +107,7 @@ public class StreamOnList {
 
         int[] num = {33, 12, 11, 111, 76, 96, 42};
         List<String> startsWith1 = Arrays.stream(num).boxed()
-                .map(x -> x + "").filter(s -> s.startsWith("1")).toList();
+                .map(x -> x + ",").filter(s -> s.startsWith("1")).toList();
 
         IntStream.range(10, 20).forEach(System.out::println);
 

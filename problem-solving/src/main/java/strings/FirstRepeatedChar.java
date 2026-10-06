@@ -1,6 +1,11 @@
 package strings;
 
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 //Find the first repeated character in a string
 //Time complexity : O(n)
@@ -11,7 +16,7 @@ public class FirstRepeatedChar {
         HashSet<Character> set = new HashSet<Character>();
 
         for(int i=0;i < str.length();i++){
-            Character ch = str.charAt(i);
+            Character ch = Character.toLowerCase(str.charAt(i));
             if(set.contains(ch)){
                 return ch;
             }
@@ -22,8 +27,31 @@ public class FirstRepeatedChar {
         return null;
     }
 
+    static Character returnRepeatedCharStream(String str){
+
+        Character result =  str.chars().mapToObj(x -> Character.toLowerCase((char)x)).collect(
+                Collectors.groupingBy(
+                        Function.identity(),
+                        LinkedHashMap::new,
+                        Collectors.counting()
+                ))
+                .entrySet()
+                .stream()
+                .filter(x -> x.getValue() > 1)
+                .sorted(Comparator.comparing(Map.Entry::getValue))
+                .map(x -> x.getKey())
+                .findFirst()
+                .get();
+
+        return result;
+    }
+
     public static void main(String[] args){
-        System.out.println(returnRepeatedChar("Rajat"));
+        String str = "JavA is CoOl";
+
+        System.out.println(returnRepeatedChar(str));
+
+        System.out.println(returnRepeatedCharStream(str));
     }
 }
 

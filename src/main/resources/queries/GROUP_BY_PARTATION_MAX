@@ -1,0 +1,22 @@
+//Employees - id,name,salary,departmentId
+
+select
+    departmentId,
+    name,
+    salary
+from(
+    select
+        departmentId,
+        name,
+        salary,
+        DENSE_RANK() OVER (
+            PARTITION BY departmentId
+            ORDER BY salary DESC
+        ) as rank
+    from employees
+) t
+where rank = 1
+
+
+//PARTITION BY departmentId - Calculate the ranking separately for each department.
+//ORDER BY salary DESC - Highest salary gets rank 1

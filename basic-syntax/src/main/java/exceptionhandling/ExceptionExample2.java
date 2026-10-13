@@ -12,7 +12,7 @@ public class ExceptionExample2 {
         catch(Exception ex){
             return "B";
         }
-","    finally{
+        finally{
             return "C";
         }
     }

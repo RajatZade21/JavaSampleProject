@@ -12,10 +12,13 @@ public class CombinationSum {
         int[] arr = {1,9,6,5,4,5,7,8,2,6,3,4};
         int targetSum = 11;
         Arrays.sort(arr);
+
         System.out.println("N values that sum to " + targetSum + ":");
         combineSumN(arr, 0, 0, targetSum, new ArrayList<>());
+
         System.out.println("Triplets values that sum to " + targetSum + ":");
         combineSumThree(arr,targetSum);
+
         System.out.println("Two values that sum to " + targetSum + ":");
         combineSumTwo(arr,targetSum);
     }

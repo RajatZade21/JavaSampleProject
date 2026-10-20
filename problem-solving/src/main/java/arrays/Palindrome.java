@@ -9,8 +9,11 @@ public class Palindrome {
 
     public static void main(String[] args){
         List<String> words = Arrays.asList("radar", "hello", "level", "java","ararara");
-
         System.out.println(withStream(words));
+
+        String str = "Madam Arora teaches malayalam";
+        System.out.println(withStream(Arrays.asList(str.toLowerCase().split(" "))));
+
     }
 
 

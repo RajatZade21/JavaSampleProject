@@ -21,7 +21,7 @@ public class Department {
     private Employee hod;
 
     // Department has many employees
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "department_id")
     private List<Employee> employees = new ArrayList<>();
 }

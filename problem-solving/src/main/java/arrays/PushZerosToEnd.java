@@ -29,4 +29,7 @@ public class PushZerosToEnd {
 
         return arr;
     }
+
+    //Given an array  int[] a={1,2,3,1,1,2,2,1,3,2,1}   Move all the 1's to the left, without changing the order of other elements . Output :: {1,1,1,1,1,2,3,2,2,3,2}
+    //
 }

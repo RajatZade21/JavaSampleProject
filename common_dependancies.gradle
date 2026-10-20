@@ -5,7 +5,9 @@ ext{
            "logback" : "ch.qos.logback:logback-classic:1.2.3",
            "log4j" : "org.apache.logging.log4j:log4j-api:2.23.1",
            "log4j-core" : "org.apache.logging.log4j:log4j-core:2.23.1",
-           "springboot" : "org.springframework.boot:spring-boot-starter:3.3.0"
+           "springboot" : "org.springframework.boot:spring-boot-starter:3.3.0",
+           "springboot-web" : "org.springframework.boot:spring-boot-starter-web:3.3.0",
+           "springboot-security" : "org.springframework.boot:spring-boot-starter-security:3.3.0"
     ]
 }
 

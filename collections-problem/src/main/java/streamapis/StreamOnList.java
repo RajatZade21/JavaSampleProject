@@ -21,6 +21,19 @@ public class StreamOnList {
         DummyDataService service = new DummyDataService();
         List<Employee> employeeList = service.getEmployeeList();
         List<Department> departmentList = service.getDepartment();
+        List<String> names = List.of(
+                "Java", "Spring", "Java", "SQL","Spring", "Java", "Python"
+        );
+
+        Set<String> seen = new HashSet<>();
+
+        //Find the duplicate strings from the list
+        List<String> duplicates = names.stream()
+                .filter(name -> !seen.add(name))
+                .distinct()
+                .collect(Collectors.toList());
+
+        System.out.println("Duplicate Strings" + duplicates);
 
         //Get Employee,Salary > 20000
         List<Employee> list2 = employeeList.stream().filter(x -> x.getSalary() > 200000).collect(Collectors.toList());
@@ -91,7 +104,7 @@ public class StreamOnList {
 
         //Check if list is null then return list of names
         //Optional.ofNullable().map().orElse()
-        List<String> names = Optional.ofNullable(employeeList).map(x -> x.stream().map(Employee::getName).collect(Collectors.toList())).orElse(Collections.EMPTY_LIST);
+        List<String> names1 = Optional.ofNullable(employeeList).map(x -> x.stream().map(Employee::getName).collect(Collectors.toList())).orElse(Collections.EMPTY_LIST);
 
         //startsWith
         Arrays.asList("Rajat","Mayuri","Zade","Ram").stream().filter(x -> x.startsWith("Ra")).forEach(System.out::print);

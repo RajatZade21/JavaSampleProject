@@ -50,7 +50,10 @@ public class StreamOnMap {
 
         //grouping by - department
         //return as map
-        Map<String,List<Employee>> map0 = list.stream().collect(Collectors.groupingBy(Employee::getDepartment));
+        Map<String,List<Employee>> map0 = list.stream()
+                .collect(
+                        Collectors.groupingBy(Employee::getDepartment)
+                );
 
         //grouping by - departments
         //sorted - no of employees

@@ -1,0 +1,9 @@
+//Show the number of employees per department, including departments with no employees,
+//but only those with more than 5.
+
+SELECT d.name, COUNT(e.id) AS headcount
+FROM departments d
+LEFT JOIN employees e ON e.dept_id = d.id
+GROUP BY d.name
+HAVING COUNT(e.id) > 5
+ORDER BY headcount DESC;

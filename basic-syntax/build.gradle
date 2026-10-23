@@ -12,11 +12,14 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-
+    implementation project(path: ':common-layer')
+    implementation project(path: ':problem-solving')
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    commonDependancies.values().forEach({
+        implementation it
+    })
 }
 
 test {

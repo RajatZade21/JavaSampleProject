@@ -3,6 +3,7 @@ package services;
 import common.layer.models.Department;
 import common.layer.models.Employee;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,7 +20,7 @@ public class DummyDataService {
             list.add(Employee.builder().id(106).name("Mayuri").department("CS").salary(200000.0).dateOfJoining(sdf.parse("2018-12-25")).build());
             list.add(Employee.builder().id(104).name("Panda").department("IT").salary(300000.0).dateOfJoining(sdf.parse("2016-01-26")).build());
             list.add(Employee.builder().id(108).name("Aarya").department("ME").salary(350000.0).dateOfJoining(sdf.parse("2024-01-24")).build());
-            list.add(Employee.builder().id(120).name("Neeti").department("IT").salary(2000000.0).dateOfJoining(sdf.parse("2021-06-15")).build());
+            list.add(Employee.builder().id(120).name("Neeti").department("IT").salary((2000000.0)).dateOfJoining(sdf.parse("2021-06-15")).build());
             list.add(Employee.builder().id(123).name("Suchita").department("ME").salary(100000.0).dateOfJoining(sdf.parse("2022-02-02")).build());
             list.add(Employee.builder().id(111).name("Usha").department("IT").salary(20000.0).dateOfJoining(sdf.parse("2021-07-06")).build());
             list.add(Employee.builder().id(115).name("Ruchu").department("CS").salary(4500000.0).dateOfJoining(sdf.parse("2017-05-11")).build());

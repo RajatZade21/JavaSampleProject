@@ -46,6 +46,10 @@ public class UserService {
         userRepository.delete(existingUser);
     }
 
+    public void findOrCreateUser(String userId,String email,String name){
+
+    }
+
     public void saveBatch(List<User> users){
         userRepository.saveAll(users);
     }

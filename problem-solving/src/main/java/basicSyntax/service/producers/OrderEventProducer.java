@@ -1,4 +1,4 @@
-package basicSyntax.service;
+package basicSyntax.service.producers;
 
 import basicSyntax.dto.records.OrderCreated;
 import org.springframework.kafka.core.KafkaTemplate;

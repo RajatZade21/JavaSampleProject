@@ -3,6 +3,7 @@ package basicSyntax.service;
 import basicSyntax.entity.OutboxEvent;
 import basicSyntax.repository.OrderRepository;
 import basicSyntax.repository.OutboxRepository;
+import net.javacrumbs.shedlock.spring.annotation.SchedulerLock;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,10 @@ public class OutboxService {
     }
 
     @Scheduled(fixedDelay = 500)
+    @SchedulerLock(
+            name = "outboxRelay",
+            lockAtMostFor = "PT2M"
+    )
     void relay() throws Exception {
         for (OutboxEvent e :
                 outboxRepo.findTop100ByPublishedFalseOrderById()) {

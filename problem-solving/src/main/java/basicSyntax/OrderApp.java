@@ -7,7 +7,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableFeignClients
-@EnableScheduling
 public class OrderApp {
     public static void main(String[] args){
         SpringApplication.run(OrderApp.class);

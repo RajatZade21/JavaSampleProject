@@ -1,4 +1,4 @@
-package basicSyntax.service;
+package basicSyntax.service.consumers;
 
 import basicSyntax.dto.records.OrderCreated;
 import org.springframework.kafka.annotation.KafkaListener;

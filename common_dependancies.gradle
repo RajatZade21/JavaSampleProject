@@ -13,13 +13,19 @@ ext{
            "springboot-webflux" : "org.springframework.boot:spring-boot-starter-webflux:3.3.0",
            "springboot-actuator" : "org.springframework.boot:spring-boot-starter-actuator:3.3.0",
            "springboot-aop" : "org.springframework.boot:spring-boot-starter-aop:3.3.0",
+           "oauth2-client" : "org.springframework.boot:spring-boot-starter-oauth2-client",
 
            "cloud-starter-openfeign" : "org.springframework.cloud:spring-cloud-starter-openfeign:4.1.2",
            "kafka" : "org.springframework.kafka:spring-kafka:3.2.2",
 
            "resilience4j-retry":"io.github.resilience4j:resilience4j-retry:2.2.0",
            "resilience4j-circuitbreaker":"io.github.resilience4j:resilience4j-circuitbreaker:2.2.0",
-           "resilience4j-spring-boot3":"io.github.resilience4j:resilience4j-spring-boot3:2.2.0"
+           "resilience4j-spring-boot3":"io.github.resilience4j:resilience4j-spring-boot3:2.2.0",
+
+            "http-client":"org.apache.httpcomponents.client5:httpclient5:",
+
+            "shedlock-spring":"net.javacrumbs.shedlock:shedlock-spring:7.10.1",
+            "shedlock-provider-jdbc-template":"net.javacrumbs.shedlock:shedlock-provider-jdbc-template:7.10.1"
     ]
 }
 
